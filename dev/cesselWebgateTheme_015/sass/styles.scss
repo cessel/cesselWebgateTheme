@@ -12,7 +12,7 @@ img
 	}
 .site-btn
 	{
-		@include site-btn($main-color-hover,$top-menu-color);
+		@include site-btn($main-menu-bg,$main-menu-color,$main-menu-bg-hover,$main-menu-color-hover);
 		display:block;
 		text-align:center;
 		border:none;
@@ -27,7 +27,7 @@ img
 			}
 		&.red
 			{
-				@include site-btn($main-color-red-hover,$top-menu-color);
+				@include site-btn($main-color-red-hover,$main-menu-color,$main-menu-bg-hover,$main-menu-color-hover);
 			&:hover
 				{
 				background-color:$main-color-red;
@@ -123,7 +123,6 @@ img
 		@include center-flex;
 		text-align:center;
 		}
-
 .menu-item-has-children
 	{
 	position:relative;
@@ -132,11 +131,11 @@ img
 	{
 		a
 			{
-			background-color:$current-menu-bg;
+			background-color:$main-menu-current-bg;
 			color:#000 !important;
 			&:hover
 				{
-				background-color:$current-menu-bg-hover !important;
+				background-color:$main-menu-current-bg-hover !important;
 				}
 			}
 	}
@@ -183,7 +182,7 @@ img
 			}
 		input[type='submit'],button[type='submit']
 			{
-				@include site-btn($main-color-hover,$top-menu-color);
+				@include site-btn($main-menu-bg,$main-menu-color,$main-menu-bg-hover,$main-menu-color-hover);
 				border:none;
 				font-size:1.25em;
 				font-weight:bold;
