@@ -1,0 +1,28 @@
+{
+  "name": "cessel_s_wordpress_gulp_project",
+  "version": "1.0.0",
+  "description": "Cessel Wordpress GULP project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ignatov Andrey aka Cessel",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-autoprefixer": "*",
+    "gulp-cache": "*",
+    "gulp-compass": "*",
+    "gulp-concat": "*",
+    "gulp-cssnano": "*",
+    "gulp-fontello": "*",
+    "gulp-group-css-media-queries": "*",
+    "gulp-imagemin": "*",
+    "gulp-plumber": "*",
+    "gulp-rename": "*",
+    "gulp-sass": "*",
+    "gulp-uglifyjs": "*",
+    "imagemin-pngquant": "*"
+  },
+  "dependencies": {}
+}
