@@ -48,6 +48,8 @@ function mapInit(selector)
                 myMap = new ymaps.Map('map',{center: position,zoom : 14 });
                 var myPlacemark = new ymaps.Placemark(position,{hintContent: siteName,balloonContent: siteName + " - " + adress});
                 myMap.geoObjects.add(myPlacemark);
+				myMap.behaviors.disable('scrollZoom');
+
             });
 
         }
