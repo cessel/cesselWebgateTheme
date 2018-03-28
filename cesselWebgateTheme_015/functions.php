@@ -21,7 +21,7 @@ function CWG_scripts()
 		$v = 1;
         $v = time();
 		$dir_js = get_template_directory().'/js/lib/';
-		$dir_css = get_template_directory().'/css/lib/';
+		$dir_css = get_template_directory().'/css/libs/';
 		$js_files=scandir($dir_js);
 		$css_files=scandir($dir_css);
 		$i=0;
@@ -42,7 +42,7 @@ function CWG_scripts()
 				$extension = explode('.',$css);
 				if($extension[count($extension)-1]=='css')
 					{
-						wp_enqueue_style('style'.$i++, $uri_css .'/lib/'. $css);
+						wp_enqueue_style('style'.$i++, $uri_css .'/libs/'. $css);
 					}
 			}
 		wp_enqueue_style('style_main', $uri_css . '/styles.css?v='.$v);
@@ -85,6 +85,7 @@ function wp_kama_theme_setup(){
 	add_theme_support( 'custom-logo' );
 	add_theme_support( 'custom-header' );
 	add_theme_support( 'custom-background' );
+	add_theme_support('woocommerce');
 }
 
 add_action( 'after_setup_theme', 'wp_kama_theme_setup' );
@@ -318,6 +319,7 @@ function show_map_shortcode()
 
 }
 
+
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
@@ -328,7 +330,6 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 }
-
 
 
 
