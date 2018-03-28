@@ -23,18 +23,7 @@ $currentCatId = $cat->term_id;
     <div class="category__wrapper">
         <?php  if( have_posts() ){while(have_posts()){the_post(); ?>
 
-            <?
-
-                if(has_excerpt())
-                    {
-                        $content = get_the_excerpt($post->ID);
-                    }
-                else
-                   {
-                       $content = wp_trim_words($post->post_content,55);
-                   }
-
-            ?>
+            <? $content = (has_excerpt()) ? get_the_excerpt($post->ID) : wp_trim_words($post->post_content,55); ?>
 
             <div class="category__item">
                 <div class="category__itemImg"><img src="<? echo get_the_post_thumbnail_url($post->ID); ?>" alt=""></div>
