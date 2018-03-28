@@ -1,6 +1,12 @@
 $(document).ready(function()
 	{
         mapInit("#map");
+		
+        $(".hamburger").click(function(){
+            $(".hamburger").toggleClass("is-active");
+            $('.mobile__menu').toggleClass("show");
+
+        });
 	});
 
 
