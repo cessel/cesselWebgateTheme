@@ -1,204 +1,26 @@
-@import "compass/css3";
+//@import "compass/css3";
 
 @import "../sass/_vars.scss";
 @import "../sass/_mixin.scss";
 @import "../sass/_hamburger_menu.scss";
 @import "../sass/_icon_fonts.scss";
 
+body{
+	font-family:$main-font;
+	}
 img
 	{
 	height: auto;
 	max-width: 100%;
 	}
-.site-btn
-	{
-		@include site-btn($main-menu-bg,$main-menu-color,$main-menu-bg-hover,$main-menu-color-hover);
-		display:block;
-		text-align:center;
-		border:none;
-		cursor:pointer;
-		&:hover
-			{
-			background-color:$main-color-hover;
-			}
-		&.mobile
-			{
-
-			}
-		&.red
-			{
-				@include site-btn($main-color-red-hover,$main-menu-color,$main-menu-bg-hover,$main-menu-color-hover);
-			&:hover
-				{
-				background-color:$main-color-red;
-				}
-
-			}
-		@include screeen-size(sm)
-			{
-			}
-		@include screeen-size(md)
-			{
-
-			}
-		@include screeen-size(lg)
-			{
-
-			}
-	}
-
-.mobile__menu
-	{
-		position:fixed;
-		left:-100%;
-		top:0;
-
-		height:100vh;
-		background-color:$main-bg;
-		color:$main-menu-color;
-		padding:10px 20px;
-		z-index:100;
-		@include transition(0.5s);
-		width:100%;
-		@include screeen-size(sm)
-			{
-			width:50%;
-			}
-		@include screeen-size(md)
-			{
-			width:50%;
-			}
-		@include screeen-size(lg)
-			{
-			width:100%;
-			}
-		&.show
-			{
-			left:0;
-			}
-		a
-			{
-				color:$main-menu-color;
-			}
-		& .close
-			{
-			position:absolute;
-			top:10px;
-			right:10px;
-			font-size:2em;
-			color:$main-menu-color;
-			font-weight:100;
-			}
-	}
-.mobile-menu
-	{
-		padding:0;
-		margin-bottom:10px;
-		li
-			{
-			list-style:none;
-			border-bottom:1px solid #a0a0a0;
-			a
-			{
-				&:hover
-				{
-					background-color:$main-color-hover;
-					}
-				}
-			}
-		}
-	.mobile__logo
-		{
-		@include center-flex;
-		text-align:center;
-		margin:20px 0;
-		img
-		{
-			max-width:135px;
-			}
-		}
-	.mobile__line
-		{
-		padding:5px;
-		@include center-flex;
-		text-align:center;
-		}
-.menu-item-has-children
-	{
-	position:relative;
-	}
-.current-menu-ancestor.menu-item-has-children,.current-menu-item
-	{
-		a
-			{
-			background-color:$main-menu-current-bg;
-			color:#000 !important;
-			&:hover
-				{
-				background-color:$main-menu-current-bg-hover !important;
-				}
-			}
-	}
-.sub-menu
-	{
-	display:none;
-	position:absolute;
+ul,li{
 	padding:0;
-	background-color:$submenu-color;
-	box-shadow:#000 0 0 7px -2px;
-	min-width:450px;
-	max-width:100%;
-	z-index:1000;
-	&.show
-		{
-		display:block;
-		}
-	li
-		{
-		list-style:none;
-			a
-				{
-				color:#000000 !important;
-				}
-		}
+	margin:0;
+	list-style:none;
 	}
-
-#map
-	{
-	width:100%;
-	height:500px;
-	position:relative;
+a{
+	text-decoration:none;
 	}
-	
-.form__line
-	{
-		input[type='text'],input[type='tel'],input[type='email'],input[type='select'],input[type='number']
-			{
-				border: 1px solid #000;
-				margin-bottom:15px;
-				min-height:45px;
-				padding:5px 10px;
-
-			}
-		input[type='submit'],button[type='submit']
-			{
-				@include site-btn($main-menu-bg,$main-menu-color,$main-menu-bg-hover,$main-menu-color-hover);
-				border:none;
-				font-size:1.25em;
-				font-weight:bold;
-				width:100%;
-			}
-		textarea
-			{
-			border: 1px solid #000;
-			margin-bottom:15px;
-			min-height:150px;
-			padding:5px 10px;
-			width:100%;
-			}
-		a
-			{
-				display:block;
-				margin-bottom:10px;
-			}
+.site-btn{
+	@include site-btn($main-color-red-hover,$main-color-hover,$main-color-red,$main-color);
 	}

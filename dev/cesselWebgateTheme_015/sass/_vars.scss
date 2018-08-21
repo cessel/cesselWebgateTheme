@@ -1,21 +1,26 @@
+$main-font:'Helvetica';
+
 $main-bg:#fff;
-$main-color:#000;
-$main-color-hover:#000;
-$main-color-red:#e12929;
-$main-color-red-hover:#c50000;
+$main-color:#292621;
+$main-color-hover:#D7BB56;
+$main-color-red:#B61001;
+$main-color-red-hover:#de323c;
 $main-content-bg:#fff;
 
-$main-menu-color:#000;
-$main-menu-color-hover:#000;
-$main-menu-bg:#fff;
-$main-menu-bg-hover:#fff;
+$main-menu-color:$main-color-hover;
+$main-menu-color-hover:$main-color;
+$main-menu-bg:$main-color;
+$main-menu-bg-hover:#e0d29f;
 
-$main-menu-current-color:#000;
-$main-menu-current-bg:#fff;
-$main-menu-current-bg-hover:#000;
+$main-menu-current-color:$main-color;
+$main-menu-current-bg:$main-color-hover;
+$main-menu-current-color-hover:$main-color;
+$main-menu-current-bg-hover:#e0d29f;
 
-$submenu-color:#000;
-$submenu-menu-bg:#fff;
-$submenu-menu-bg-hover:#000;
+$submenu-color:$main-color-hover;
+$submenu-menu-bg:$main-color;
+$submenu-color-hover:$main-color;
+$submenu-menu-bg-hover:#e0d29f;
+
 
 $skype-color:#00aff0;

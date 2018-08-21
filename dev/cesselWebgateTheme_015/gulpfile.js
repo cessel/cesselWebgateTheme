@@ -14,17 +14,19 @@ var gulp        = require("gulp"),
 
 
 gulp.task("sass",function(done)
-
     {
         return gulp.src('sass/**/*.+(sass|scss)')
-            .pipe(compass({
-                config_file: __dirname + '/config/compass.rb',
-                sass: 'sass',
-                css:'css'
-            })).on('error', function(error) {
-                // у нас ошибка
-                done("ОШИБКА1" + error);
-            })
+        /*.pipe(compass({
+            config_file: __dirname + '/config/compass.rb',
+            sass: 'sass',
+            css:'css'
+        })).on('error', function(error) {
+            // у нас ошибка
+            done("ОШИБКА1" + error);
+        })*/
+            .pipe(sass({outputStyle: 'compact', precision: 10})
+                .on('error', sass.logError)
+            )
             .pipe(autopref(['last 15 versions','> 1%', 'ie 8', 'ie 7'],{'cascade':true})).on('error', function(error) {
                 // у нас ошибка
                 done("ОШИБКА2" + error);
