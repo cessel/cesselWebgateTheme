@@ -47,7 +47,7 @@ function CWG_scripts()
 			}
 		wp_enqueue_style('style_main', $uri_css . '/styles.css?v='.$v);
 		//wp_enqueue_style('style_main', $uri_css . '/style.min.css?v='.$v);
-		wp_enqueue_script('script_main', $uri_js . '/misc.js?v='.$v);
+		wp_enqueue_script('script_main', $uri_js . '/misc.js','jquery',$v);
 	}
 add_action( 'wp_enqueue_scripts', 'CWG_scripts' );
 
