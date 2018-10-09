@@ -2,6 +2,21 @@
 require_once(get_template_directory().'/theme_settings/settings.php');
 define('CES_IMG',get_template_directory_uri()."/img");
 /* global $post */
+// Удаляем лишнее с head части сайта при необходимости раскоментировать
+/*
+remove_action( 'wp_head', 'feed_links_extra', 3 );
+remove_action( 'wp_head', 'feed_links',       2 );
+remove_action( 'wp_head', 'rsd_link'            ); 
+remove_action( 'wp_head', 'wlwmanifest_link'    );
+add_filter('the_generator', '__return_empty_string'); 
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10 );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
+remove_action( 'wp_head', 'wp_resource_hints', 2); 
+remove_action('wp_head','start_post_rel_link',10,0);
+remove_action( 'wp_head', 'rest_output_link_wp_head');
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links');
+remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
+*/
 
 function icon($iconname)
     {
