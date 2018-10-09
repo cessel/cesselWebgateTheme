@@ -10,7 +10,7 @@ function icon($iconname)
 function logo()
     {
 	    $logo_src = wp_get_attachment_image_url(get_theme_mod( 'custom_logo'),'full');
-        echo "<img src='".$logo_src."'' alt='".get_bloginfo('name')." - наш логотип'>";
+        echo "<img src='".$logo_src."' alt='".get_bloginfo('name')." - наш логотип'>";
     }
 
 /* АВТОМАТИЧЕСКОЕ ПОДКЛЮЧЕНИЕ JS И CSS ФАЙЛОВ ИЗ ПАПКИ /js/ и /css/ СООТВЕТСТВЕННО */
