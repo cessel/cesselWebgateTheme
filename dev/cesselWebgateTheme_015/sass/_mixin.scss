@@ -32,6 +32,7 @@ $more_lg: 1440px;
     transition:0.5s;
     background-color:$bg;
     color:$color;
+	cursor:pointer;
 	&:hover
 		{
 			background-color:$bg_hover;
