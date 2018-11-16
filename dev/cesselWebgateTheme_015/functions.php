@@ -47,7 +47,7 @@ function CWG_scripts()
 				$extension = explode('.',$js);
 				if($extension[count($extension)-1]=='js')
 					{
-						wp_enqueue_script('script'.$i++,  $uri_js.'/lib/'. $js);
+						wp_enqueue_script('script'.$i++,  $uri_js.'lib/'. $js);
 					}
 				
 			}
@@ -62,7 +62,11 @@ function CWG_scripts()
 			}
 		wp_enqueue_style('style_main', $uri_css . '/styles.css?v='.$v);
 		//wp_enqueue_style('style_main', $uri_css . '/style.min.css?v='.$v);
-		wp_enqueue_script('script_main', $uri_js . '/misc.js','jquery',$v);
+		if(get_field('включить_яндекс_карты','options'))
+			{
+				wp_enqueue_script('yandex_map', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU');
+			}
+		wp_enqueue_script('script_main', $uri_js . 'misc.js','jquery',$v);
 	}
 add_action( 'wp_enqueue_scripts', 'CWG_scripts' );
 
@@ -335,7 +339,6 @@ function show_map_shortcode()
 
 }
 
-
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
@@ -346,8 +349,41 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 }
+if( function_exists('acf_add_local_field') ) {
+	acf_add_local_field(array(
+		'key' => 'field_enable_ymaps',
+		'label' => 'Включить Яндекс карты',
+		'name' => 'включить_яндекс_карты',
+		'type' => 'true_false',
+		'parent' => 'site-settings'
+	));
+}
+if( function_exists('acf_add_local_field_group') ) {
+	acf_add_local_field_group(array(
+		'key' => 'site-settings',
+		'title' => 'Настройки сайта',
+		'fields' => array (),
+		'location' => array (
+			array (
+				array (
+					'param' => 'options_page',
+					'operator' => '==',
+					'value' => 'theme-general-settings',
+				),
+			),
+		),
+	));
+}
 
-
+function some_replaces($content)
+    {
+        $replaces[] = array('find' => '[FIRMNAME]','replace' => get_bloginfo('name'));
+	    foreach ( $replaces as $replace ) {
+		    $content = str_replace($replace['find'],$replace['replace'],$content);
+        }
+        return $content;
+    }
+add_filter('the_content','some_replaces');
 
 
 
