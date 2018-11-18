@@ -297,7 +297,13 @@ function generate_owl_from_post($cat_id,$numposts)
 		$return .= "</div>";
 		return $return;
 	}
-	
+
+function show_map($long, $lat,$adress,$sitename = false)
+	{
+		$sitename = ($sitename) ? $sitename ? bloginfo('name');
+		echo '
+		<!-- MAP SECTION --><div class="ymap-container"><div class="loader loader-default"></div><div id="map-yandex" data-sitename="'.$sitename.'" data-adress="'.$adress.'" data-lat="'.$lattitude.'" data-long="'.$longtitude.'"></div></div><!-- .ymap-container --><!-- END MAP SECTION -->';
+	}
 	/* для bootstrap4 меню*/
 add_filter( 'nav_menu_css_class', 'add_my_class_to_nav_menu', 10, 3 );
 function add_my_class_to_nav_menu( $classes, $item  ){

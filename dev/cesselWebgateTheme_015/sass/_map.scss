@@ -1,0 +1,65 @@
+/* &#34;Блок-обертка&#34;, где мы задаем фоновое изображение скриншотом как на карте */
+.ymap-container {
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	background:url($map_bg) no-repeat center center;
+	background-size: cover;
+	}
+
+/* Блок, в котором появится Яндекс.Карта */
+#map-yandex {
+	position: relative;
+	z-index: 7;
+	width: 100%;
+	height: 20em;
+	cursor: pointer;
+	background-color: transparent;
+	}
+/* Индикатор загрузки, который показывается до загрузки карты */
+.loader {
+	@include overlay;
+	transition: opacity .7s ease;
+	display:flex;
+	align-items:center;
+	align-content:center;
+	justify-content:center;
+	opacity:0;
+	}
+
+.loader:after,
+.loader:before {
+	box-sizing: border-box;
+	}
+
+.loader.is-active {
+	opacity: 1;
+	}
+
+.loader-default:after {
+	width: 48px;
+	height: 48px;
+	content: '';
+	animation: rotation 1s linear infinite;
+	border: solid 8px #000;
+	border-left-color: transparent;
+	border-radius: 50%;
+	}
+
+@keyframes rotation {
+	from {
+		transform: rotate(0);
+		}
+	to {
+		transform: rotate(359deg);
+		}
+	}
+
+@keyframes blink {
+	from {
+		opacity: .5;
+		}
+	to {
+		opacity: 1;
+		}
+	}
