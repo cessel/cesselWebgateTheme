@@ -22,11 +22,13 @@ function icon($iconname)
     {
         echo "<i class='icon-".$iconname."'></i>";
     }
-function logo()
-    {
-	    $logo_src = wp_get_attachment_image_url(get_theme_mod( 'custom_logo'),'full');
-        echo "<img src='".$logo_src."' alt='".get_bloginfo('name')." - наш логотип'>";
-    }
+function logo($with_link = true)
+{
+	$logo_src = wp_get_attachment_image_url(get_theme_mod( 'custom_logo'),'full');
+	$logo_html = ($with_link && !(is_home()||is_front_page())) ? "<a href='".get_home_url()."' title='".get_bloginfo('name')." - на главную'><img src='".$logo_src."' alt='".get_bloginfo('name')." - наш логотип'></a>" : "<img src='".$logo_src."' alt='".get_bloginfo('name')." - наш логотип'>";
+
+	echo $logo_html;
+}
 
 /* АВТОМАТИЧЕСКОЕ ПОДКЛЮЧЕНИЕ JS И CSS ФАЙЛОВ ИЗ ПАПКИ /js/ и /css/ СООТВЕТСТВЕННО */
 /*Для включения кеша закомментировать $v = time(); */
