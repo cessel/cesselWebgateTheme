@@ -17,6 +17,18 @@ remove_action( 'wp_head', 'rest_output_link_wp_head');
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links');
 remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
 */
+/* Админ бар */
+add_filter('show_admin_bar', '__return_false'); // отключить
+//add_filter('show_admin_bar', '__return_true'); // включить
+
+if ( ! is_admin() ) {
+	remove_action( 'wp_head', 'wp_print_scripts' );
+	remove_action( 'wp_head', 'wp_print_head_scripts', 9 );
+	remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
+	add_action( 'wp_footer', 'wp_print_scripts', 5 );
+	add_action( 'wp_footer', 'wp_enqueue_scripts', 5 );
+	add_action( 'wp_footer', 'wp_print_head_scripts', 5 );
+}
 
 function icon($iconname)
     {
