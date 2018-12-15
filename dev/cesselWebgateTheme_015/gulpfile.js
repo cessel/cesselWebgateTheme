@@ -8,9 +8,10 @@ var gulp        = require("gulp"),
     imgmin      = require('gulp-imagemin'),
     pngq        = require('imagemin-pngquant'),
     autopref    = require('gulp-autoprefixer'),
-    plumber    = require('gulp-plumber'),
+    plumber     = require('gulp-plumber'),
     fontello    = require('gulp-fontello'),
-    cache        = require('gulp-cache');
+    cache       = require('gulp-cache'),
+    gcmq        = require('group-css-media-queries');
 
 
 gulp.task("sass",function(done)
@@ -48,13 +49,14 @@ gulp.task('css-libs',function()
         .pipe(concat('libs.min.css'))
         .pipe(gulp.dest('css/libs/'));
 });
-gulp.task('css-main-dist',['sass'], function () {
+gulp.task('css-main-dist',gulp.series('sass', function (done) {
     gulp.src('css/*.css')
         .pipe(gcmq())
 		.pipe(cssnano())
 		.pipe(concat('style.min.css'))
         .pipe(gulp.dest('css'));
-});
+        done();
+}));
 
 gulp.task('scripts',function()
 {
@@ -89,16 +91,15 @@ gulp.task('img',function()
            .pipe(gulp.dest('img'));
     });
 
-gulp.task('prepare-scripts',['scripts','css-libs'],function()
-    {
+gulp.task('prepare-scripts',gulp.series('scripts','css-libs'));
 
-    });
 gulp.task('icons', function () {
     return gulp.src('css/fonts/config.json')
         .pipe(fontello())
         .pipe(gulp.dest('css/icons'))
 });
-gulp.task('default',['icons','prepare-scripts','sass'],function()
+gulp.task('default',gulp.series('icons','prepare-scripts','sass',function(done)
     {
-        gulp.watch('sass/**/*.+(sass|scss)',['sass']);
-    });
+        done();
+        gulp.watch('sass/**/*.+(sass|scss)',gulp.series('sass'));
+    }));
