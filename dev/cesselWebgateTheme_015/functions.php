@@ -64,7 +64,7 @@ function CWG_scripts()
 			}
 		wp_enqueue_style('style_main', $uri_css . '/styles.css?v='.$v);
 		//wp_enqueue_style('style_main', $uri_css . '/style.min.css?v='.$v);
-		if(get_field('включить_яндекс_карты','options'))
+		if(function_exists('get_field') && get_field('включить_яндекс_карты','options'))
 			{
 				wp_enqueue_script('yandex_map', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU');
 			}
@@ -300,11 +300,10 @@ function generate_owl_from_post($cat_id,$numposts)
 		return $return;
 	}
 
-function show_map($long, $lat,$adress,$sitename = false)
+function show_map($longtitude, $lattitude,$adress,$sitename = false)
 	{
-		$sitename = ($sitename) ? $sitename ? bloginfo('name');
-		echo '
-		<!-- MAP SECTION --><div class="ymap-container"><div class="loader loader-default"></div><div id="map-yandex" data-sitename="'.$sitename.'" data-adress="'.$adress.'" data-lat="'.$lattitude.'" data-long="'.$longtitude.'"></div></div><!-- .ymap-container --><!-- END MAP SECTION -->';
+		$sitename = ($sitename) ? $sitename : bloginfo('name');
+		echo '<!-- MAP SECTION --><div class="ymap-container"><div class="loader loader-default"></div><div id="map-yandex" data-sitename="'.$sitename.'" data-adress="'.$adress.'" data-lat="'.$lattitude.'" data-long="'.$longtitude.'"></div></div><!-- .ymap-container --><!-- END MAP SECTION -->';
 	}
 	/* для bootstrap4 меню*/
 add_filter( 'nav_menu_css_class', 'add_my_class_to_nav_menu', 10, 3 );
@@ -392,26 +391,3 @@ function some_replaces($content)
         return $content;
     }
 add_filter('the_content','some_replaces');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
