@@ -403,3 +403,17 @@ function some_replaces($content)
         return $content;
     }
 add_filter('the_content','some_replaces');
+
+function get_image_field($selector,$post_id,$size = 'large',$img_tag = false){
+	if(function_exists('get_field')){
+			$image_id = get_field($selector,$post_id);
+	$size = (!empty($size)) ? $size : 'large' ;
+	$return = wp_get_attachment_image_url($image_id,$size); 
+	
+	$return = ($img_tag) ? '<img src="'.$return.'" alt="">' : $return ;
+	}
+	else{
+		$return = false;
+	}
+	return $return;
+}
