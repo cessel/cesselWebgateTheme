@@ -1,6 +1,10 @@
 $(document).ready(function()
 	{
-        
+        setTimeout(function()
+        {
+            var preloader = $(".preloader");
+            preloader.fadeOut();
+        },500);
 		
         $(".hamburger").click(function(){
             $(".hamburger").toggleClass("is-active");
