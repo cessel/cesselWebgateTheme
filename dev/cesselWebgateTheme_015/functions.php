@@ -53,7 +53,7 @@ function CWG_scripts()
 		$uri_js = get_template_directory_uri() . '/js';
 
 		wp_enqueue_style('style_main_lib', $uri_css . '/libs/libs.min.css',$v);
-		wp_enqueue_style('style_main', $uri_css . '/libs/styles.css',$v);
+		wp_enqueue_style('style_main', $uri_css . '/styles.css',$v);
 		wp_enqueue_script('script_main_lib', $uri_js . '/libs/libs.min.js',$v);
 		if(function_exists('get_field') && get_field('включить_яндекс_карты','options'))
 			{
