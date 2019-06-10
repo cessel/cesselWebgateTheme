@@ -49,38 +49,17 @@ function CWG_scripts()
 	{
 		$v = 1;
         $v = time();
-		$dir_js = get_template_directory().'/js/lib/';
-		$dir_css = get_template_directory().'/css/libs/';
-		$js_files=scandir($dir_js);
-		$css_files=scandir($dir_css);
-		$i=0;
-		$uri_css = get_template_directory_uri() . '/css/';
-		$uri_js = get_template_directory_uri() . '/js/';
-		foreach ($js_files as $js)
-			{
-				$extension = explode('.',$js);
-				if($extension[count($extension)-1]=='js')
-					{
-						wp_enqueue_script('script'.$i++,  $uri_js.'lib/'. $js);
-					}
-				
-			}
-			$i=0;
-		foreach ($css_files as $css)
-			{
-				$extension = explode('.',$css);
-				if($extension[count($extension)-1]=='css')
-					{
-						wp_enqueue_style('style'.$i++, $uri_css .'/libs/'. $css);
-					}
-			}
-		wp_enqueue_style('style_main', $uri_css . '/styles.css?v='.$v);
-		//wp_enqueue_style('style_main', $uri_css . '/style.min.css?v='.$v);
+		$uri_css = get_template_directory_uri() . '/css';
+		$uri_js = get_template_directory_uri() . '/js';
+
+		wp_enqueue_style('style_main', $uri_css . '/libs/libs.min.css',$v);
+		wp_enqueue_style('style_main', $uri_css . '/libs/styles.css',$v);
+		wp_enqueue_script('script_main', $uri_js . '/libs/libs.min.js',$v);
 		if(function_exists('get_field') && get_field('включить_яндекс_карты','options'))
 			{
 				wp_enqueue_script('yandex_map', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU');
 			}
-		wp_enqueue_script('script_main', $uri_js . 'misc.js','jquery',$v);
+		wp_enqueue_script('script_main', $uri_js . 'misc.js','jquery',$v,true);
 	}
 add_action( 'wp_enqueue_scripts', 'CWG_scripts' );
 
@@ -417,3 +396,14 @@ function get_image_field($selector,$post_id,$size = 'large',$img_tag = false){
 	}
 	return $return;
 }
+	
+function generate_excerpt($post,$numwords = 10) 
+	{
+		$experpt = (has_excerpt($post->ID)) ? wp_trim_words(shortcode_remover(get_the_excerpt($post->ID),$numwords)) : wp_trim_words(shortcode_remover($post->post_content),$numwords) ;
+		return $experpt;
+}
+function shortcode_remover($content)
+    {
+	    $content = strip_shortcodes(preg_replace( '~\[[^\]]+\]~', '', strip_tags($content)));
+        return $content;
+    }
