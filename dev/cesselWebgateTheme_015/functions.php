@@ -117,56 +117,6 @@ function register_my_widgets() {
 		'after_title'   => "</p>",
 	) );
 	register_sidebar( array(
-		'name'          => 'Контакты - правый блок',
-		'id'            => "contacts-sidebar",
-		'description'   => '',
-		'class'         => '',
-		'before_widget' => '<div class="contactsWidgetWrapper">',
-		'after_widget'  => "</div>",
-		'before_title'  => '<p class="widget__title">',
-		'after_title'   => "</p>",
-	) );
-	register_sidebar( array(
-		'name'          => 'Контакты в подвале - левый блок',
-		'id'            => "footer-contacts-left-sidebar",
-		'description'   => '',
-		'class'         => '',
-		'before_widget' => '<div class="widgetWrapper">',
-		'after_widget'  => "</div>",
-		'before_title'  => '<p class="widget__title">',
-		'after_title'   => "</p>",
-	) );
-	register_sidebar( array(
-		'name'          => 'Контакты в подвале - центральный блок',
-		'id'            => "footer-contacts-center-sidebar",
-		'description'   => '',
-		'class'         => '',
-		'before_widget' => '<div class="widgetWrapper">',
-		'after_widget'  => "</div>",
-		'before_title'  => '<p class="widget__title">',
-		'after_title'   => "</p>",
-	) );
-	register_sidebar( array(
-		'name'          => 'Контакты в подвале - правый блок',
-		'id'            => "footer-contacts-right-sidebar",
-		'description'   => '',
-		'class'         => '',
-		'before_widget' => '<div class="widgetWrapper">',
-		'after_widget'  => "</div>",
-		'before_title'  => '<p class="widget__title">',
-		'after_title'   => "</p>",
-	) );
-	register_sidebar( array(
-		'name'          => 'Блок слайдера на главной странице',
-		'id'            => "frontpage-banner",
-		'description'   => '',
-		'class'         => '',
-		'before_widget' => '<div class="banner__carouselWrapper">',
-		'after_widget'  => "</div>",
-		'before_title'  => '',
-		'after_title'   => "",
-	) );
-	register_sidebar( array(
 		'name'          => 'Подвал - средний блок',
 		'id'            => "footer-center-sidebar",
 		'description'   => '',
