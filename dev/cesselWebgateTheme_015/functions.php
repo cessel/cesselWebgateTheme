@@ -52,14 +52,14 @@ function CWG_scripts()
 		$uri_css = get_template_directory_uri() . '/css';
 		$uri_js = get_template_directory_uri() . '/js';
 
-		wp_enqueue_style('style_main_lib', $uri_css . '/libs/libs.min.css',$v);
-		wp_enqueue_style('style_main', $uri_css . '/styles.css',$v);
-		wp_enqueue_script('script_main_lib', $uri_js . '/libs/libs.min.js',$v);
+		wp_enqueue_style('style_main_lib', $uri_css . '/libs/libs.min.css','',$v);
+		wp_enqueue_style('style_main', $uri_css . '/styles.css','',$v);
+		wp_enqueue_script('script_main_lib', $uri_js . '/libs/libs.min.js','',$v);
 		if(function_exists('get_field') && get_field('включить_яндекс_карты','options'))
 			{
 				wp_enqueue_script('yandex_map', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU');
 			}
-		wp_enqueue_script('script_main', $uri_js . '/misc.js',$v);
+		wp_enqueue_script('script_main', $uri_js . '/misc.js','',$v);
 	}
 add_action( 'wp_enqueue_scripts', 'CWG_scripts' );
 
