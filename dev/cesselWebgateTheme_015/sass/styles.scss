@@ -1,10 +1,8 @@
-@import "../lib/bootstrap/scss/bootstrap.scss";
+@import "../sass/_my_bootstrap.scss";
 
 @import "../sass/_vars.scss";
 @import "../sass/_mixin.scss";
-@import "../sass/_icon_fonts.scss";
 @import "../sass/_map.scss";
-@import "../lib/font-awesome/scss/font-awesome.scss";
 
 body{
 	font-family:$main-font;

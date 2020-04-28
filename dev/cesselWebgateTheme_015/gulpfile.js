@@ -33,6 +33,7 @@ gulp.task("sass",function(done)
             // у нас ошибка
             done("ОШИБКА2" + error);
         })
+        .pipe(cssnano())
         .pipe(gulp.dest('css'));
 });
 gulp.task('icons-prepare', function () {
