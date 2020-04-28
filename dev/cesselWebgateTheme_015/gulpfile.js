@@ -11,6 +11,7 @@ var gulp        = require("gulp"),
     plumber     = require('gulp-plumber'),
     fontello    = require('gulp-fontello'),
     cache       = require('gulp-cache'),
+    replace     = require('gulp-replace'),
     gcmq        = require('group-css-media-queries');
 
 
@@ -49,6 +50,7 @@ gulp.task('icons',gulp.series('icons-prepare',function(done)
             'assets/fontello/css/animation.css',
             'assets/fontello/css/fontello.css',
         ])
+        .pipe(replace('font-style: normal;', 'font-style: normal;  font-display:swap;'))
         .pipe(concat('fontello_animated.css'))
         .pipe(gulp.dest('assets/fontello/'));
 }));
