@@ -1,24 +1,31 @@
+/* Настрйока ширины */
+$hamburger_width: 35px;
+$hamburger_margin:5px;
+$hamburger_bar_height:3px;
+$hamburger_translate_plus: $hamburger_bar_height+$hamburger_margin;
+$hamburger_translate_minus: -$hamburger_translate_plus;
+
 .hamburger{
 	display: block !important;
 	}
 .hamburger .line{
-	width: 50px;
-	height: 5px;
-	background-color: #ecf0f1;
+	width: $hamburger_width;
+	height: $hamburger_bar_height;
+	background-color: #000;
 	display: block;
-	margin: 8px auto;
+	margin: $hamburger_margin auto;
 	-webkit-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 	@include screeen-size(sm)
 	    {
 		width: 35px;
-		margin: 8px auto;
+		margin: $hamburger_margin auto;
 		}
 	@include screeen-size(md)
 	    {
 		width: 50px;
-		margin: 8px auto;
+		margin: $hamburger_margin auto;
 	    }
 	@include screeen-size(lg)
 	    {
@@ -37,15 +44,15 @@
 	}
 
 #hamburger-1.is-active .line:nth-child(1){
-	-webkit-transform: translateY(13px) rotate(45deg);
-	-ms-transform: translateY(13px) rotate(45deg);
-	-o-transform: translateY(13px) rotate(45deg);
-	transform: translateY(13px) rotate(45deg);
+	-webkit-transform: translateY($hamburger_translate_plus) rotate(45deg);
+	-ms-transform: translateY($hamburger_translate_plus) rotate(45deg);
+	-o-transform: translateY($hamburger_translate_plus) rotate(45deg);
+	transform: translateY($hamburger_translate_plus) rotate(45deg);
 	}
 
 #hamburger-1.is-active .line:nth-child(3){
-	-webkit-transform: translateY(-13px) rotate(-45deg);
-	-ms-transform: translateY(-13px) rotate(-45deg);
-	-o-transform: translateY(-13px) rotate(-45deg);
-	transform: translateY(-13px) rotate(-45deg);
+	-webkit-transform: translateY($hamburger_translate_minus) rotate(-45deg);
+	-ms-transform: translateY($hamburger_translate_minus) rotate(-45deg);
+	-o-transform: translateY($hamburger_translate_minus) rotate(-45deg);
+	transform: translateY($hamburger_translate_minus) rotate(-45deg);
 	}
